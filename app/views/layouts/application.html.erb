@@ -8,12 +8,22 @@
 </head>
 <body>
 	<div class="container">
-		<nav class="navbar navbar-default navbar-fixed-top">
+		<nav class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container">
 				<a class="navbar-brand" href="#">Treebook</a>
 				<ul class="nav navbar-nav">
 					<li><%= link_to "All Statuses", statuses_path %></li>
-					<li><%= link_to "Signout", destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+				</ul>
+				<ul class="nav navbar-nav pull-right">
+					<% if user_signed_in? %>
+						<li><%= link_to current_user.full_name, edit_user_registration_path %></li>
+						<li><%= link_to "Signout", destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+					<% else %>
+						<li><%= link_to "Sign In", new_user_session_path %></li>				
+						<li><%= link_to "Sign Up", new_user_registration_path %></li>
+					<% end %>
+
+					
 				</ul>
 			</div>
 		</nav>
