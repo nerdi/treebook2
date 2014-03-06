@@ -12,5 +12,11 @@
  *= require_tree .
  */
 body{
-	padding-top: 40px;
+	padding-top: 70px;
+}
+
+/* -- fixes for horizontal forms --*/
+
+.form-group{
+	width:44%;
 }
